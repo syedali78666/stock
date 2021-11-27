@@ -1,0 +1,55 @@
+
+
+ .container {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	padding-top: 2%;
+    padding-bottom: 2%;
+text-align:center;
+height:100vh;
+}
+
+.sub-container{
+border: 3px solid white;
+    padding: 15px 15px 15px 15px;
+    /* padding-bottom: 15
+px
+; */
+    margin-bottom: 15px;
+}
+
+.stocklist {background: linear-gradient(-45deg, #4caf50, #1e5c83, #70d523, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+    margin-left: 12%;
+    color: white;
+    font-weight: 600;font-size: 17px;
+      font-family: 'FontAwesome', 'Second Font name';
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;}
+}
+
+
+
+.option1{
+       color: white; 
+       background-color:#23a6d5;
+}
+
+.title{
+    font-size:25px;
+    color: white;
+    font-weight: 600;
+}
+
+

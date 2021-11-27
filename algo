@@ -1,0 +1,15 @@
+date and stock prices
+
+1. upload csv file
+2. input box to select stock to track (ggogl)
+3. date range from when to when ( use date picker)
+4. dates when to buy and when to sell for maximum profile and minimum loss
+5.mean stock price
+6. standard deviation ( for 200 shares buy)
+
+
+buy first at lowest price ( if it is going to fall
+don't buy to maximize the profile and loss)
+
+
+
