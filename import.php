@@ -1,6 +1,6 @@
 <?php
 // Load the database configuration file
-include_once 'config.php';
+include_once 'includes/config.php';
 
 if(isset($_POST['importSubmit'])){
     
@@ -56,4 +56,3 @@ header("Location: index.php".$qstring);
         $qstring = '?status=invalid_file';
     }
 }
-

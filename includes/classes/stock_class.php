@@ -1,13 +1,35 @@
-<?php
-// PHP program to find maximum
-// possible profit with at most
-// two transactions
- 
-// Returns maximum profit with
-// two transactions on a given
-// list of stock prices, price[0..n-1]
-function maxProfit($price, $n)
+<?
+
+class stock 
 {
+
+
+function Stand_Deviation($arr)
+    {
+        $num_of_elements = count($arr);
+          
+        $variance = 0.0;
+          
+                // calculating mean using array_sum() method
+        $average = array_sum($arr)/$num_of_elements;
+          
+        foreach($arr as $i)
+        {
+            // sum of squares of differences between 
+                        // all numbers and means.
+            $variance += pow(($i - $average), 2);
+        }
+          
+        return (float)sqrt($variance/$num_of_elements);
+    }
+
+
+function maxProfit($price, $n , $date)
+{
+if(count($price)>0) {
+}else {
+return "date do not match with data";
+}
     // Create profit array and
     // initialize it as 0
     $profit = array();
@@ -35,12 +57,12 @@ function maxProfit($price, $n)
         // b) profit by buying at
         // price[i] and selling at
         // max_price
-        if($profit[$i + 1] >
-           $max_price-$price[$i])
+        if($profit[$i + 1] >    $max_price-$price[$i]) {
         $profit[$i] = $profit[$i + 1];
-        else
-        $profit[$i] = $max_price -
-                      $price[$i];
+ }
+        else{
+        $profit[$i] = $max_price -                      $price[$i];
+ }
     }
  
     // Get the maximum profit with
@@ -66,15 +88,15 @@ function maxProfit($price, $n)
                           $profit[$i] +
                          ($price[$i] - $min_price));
     }
-    $result = $profit[$n - 1];
+  
+  $result = $profit[$n - 1];
     return $result;
 }
  
-// Driver Code
-$price = array(2, 30, 15, 10,
-               8, 25, 80);
-$n = sizeof($price);
-echo "Maximum Profit = ".
-      maxProfit($price, $n);
-     
+
+}
+
+
+
+
 ?>

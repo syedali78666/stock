@@ -1,62 +1,60 @@
 <?php include("includes/config.php");?>
 <!DOCTYPE html>
 <html>
+
 <head>
-	<?php include("includes/head.php");?>
+    <?php include("includes/head.php");?>
 </head>
+
 <body>
 
-<?php include("includes/design-top.php");?>
-<?php include("includes/navigation.php");?>
-
-<div class="container">
-
-<div class="stock sub-container" id="stock">           
-                        <span class="title">Choose a Stock:</span>
-
- <?php
-
-$sql1 = "select stock_name from stocktbl; ";
-$success1 = mysqli_query($db,$sql1);
+    <?php include("includes/design-top.php");?>
+    <?php include("includes/navigation.php");?>
 
 
-die(mysqli_error());
-
-if (mysqli_num_rows($success1) < 1) {
-   echo "<option>No stock found </option>";
-}else {
-
-while ($row = mysqli_fetch_assoc($success1)) {
-
-echo "<option class='option1' value='".$row["stock_name"]."'>".$row["stock_name"]."</option>" ;
-
-}
-}
- ?>
-
-<select class="field-control stocklist" name="stock" id="stock"    >
-    
-  <option value="" style="  color: white; background-color:#ee7752;"> Select   &#xf103 </option>
-    
-     
-  
-</select>	
+    <form action="logic.php" method="post" enctype="multipart/form-data">
+        <div class="container">
+            <div class="stock sub-container" id="stock">
+                <span class="title">Choose a Stock:</span>
 
 
-</div>
+                <select class="field-control stocklist" name="stock" id="stock">
+
+                    <option value="" style="  color: white; background-color:#ee7752;"> Select &#xf103 </option>
+
+                    <?php
+        // Get member rows
+        $result = $db->query("SELECT DISTINCT UPPER(stock_name) FROM `stocktbl` WHERE 1");
+
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+
+echo "<option class='option1' value='".$row["stock_name"]."'>".$row["stock_name"]."</option>"
+        ?>
+
+                    <?php } }else{ ?>
+                    No member(s) found...
+                    <?php } ?>
+
+                </select>
+            </div>
+            <div class="date1 sub-container" id="date1">
+                <p class="title"> Start Date: <input type="text" id="datepicker" name="datepicker"></p>
+            </div>
+            <div class="date1 sub-container" id="date2">
+                <p class="title"> End Date: <input type="text" id="datepicker2" name="datepicker2"></p>
+            </div>
 
 
-<div class="date1 sub-container" id="date1">
-	<p class="title"> Start Date: <input type="text" id="datepicker"></p>
-</div>
+            <div class="date1 sub-container" id="submit">
 
-<div class="date1 sub-container" id="date2">
-	<p class="title"> End Date: <input type="text" id="datepicker2"></p>
-</div>
+                <input type="submit" class="btn btn-primary" name="report" value="submit">
+            </div>
+        </div>
+    </form>
 
-</div>
-
-<?php include("includes/footer.php");?>
+    <?php include("includes/footer.php");?>
 
 </body>
+
 </html>
