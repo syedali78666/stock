@@ -24,7 +24,7 @@
 
                     <?php
         // Get member rows
-        $result = $db->query("SELECT DISTINCT UPPER(stock_name) FROM `stocktbl` WHERE 1");
+        $result = $db->query("SELECT DISTINCT stock_name FROM `stocktbl` WHERE 1");
 
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){

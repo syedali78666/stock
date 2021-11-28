@@ -10,7 +10,7 @@ $stock_name = $_POST['stock'];
 $price =[];
 $date =[];
 
-//echo "SELECT price FROM `stocktbl` where stock_name =  '".$stock_name."' && date BETWEEN '".$startDate."' AND '".$endDate."'   order by `date` asc";die;
+//echo "SELECT price FROM `stocktbl` where (stock_name) =  '".$stock_name."' && date BETWEEN '".$startDate."' AND '".$endDate."'   order by `date` asc";die;
  $result = $db->query("SELECT price FROM `stocktbl` where stock_name =  '".$stock_name."' && date BETWEEN '".$startDate."' AND '".$endDate."'   order by `date` asc");
 while($row = $result->fetch_row()) {
 //print_R($row);die;
@@ -24,7 +24,7 @@ $price = array_map( function( $val ) {
 }, $price );
 
 
-$result1 = $db->query("SELECT date FROM `stocktbl` where UPPER(stock_name) =  '".$stock_name."' && date BETWEEN '".$startDate."' AND '".$endDate."'   order by `date` asc");
+$result1 = $db->query("SELECT date FROM `stocktbl` where stock_name =  '".$stock_name."' && date BETWEEN '".$startDate."' AND '".$endDate."'   order by `date` asc");
 while($row1 = $result1->fetch_row()) {
     $date[] = $row1;
 }
